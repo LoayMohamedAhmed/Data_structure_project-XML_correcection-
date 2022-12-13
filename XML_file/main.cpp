@@ -60,6 +60,19 @@ void check_errors(char* data,int max_size)
 
             }
             while(data[k]!='>');
+            characters.push(data[k]);
+            int size1 = characters.size() - 1;
+            char temp_array[size1 + 1];
+
+
+
+            for (int j = size1; j >= 0; j--)
+            {
+                temp_array[j] = characters.top();
+                characters.pop();
+            }
+            T.s = conv_to_string(temp_array, size1 + 1);
+            T.index = k;
         }
     }
 }
