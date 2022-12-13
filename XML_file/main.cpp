@@ -130,6 +130,14 @@ void check_errors(char* data,int max_size)
                         temp.push_front(tags.front());
                         tags.pop_front();
                     }
+                }
+                while(!temp.empty())
+                {
+
+                    tags.push_front(temp.front());
+                    temp.pop_front();
+                }
+            }
 }
 
 int main()
