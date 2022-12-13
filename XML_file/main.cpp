@@ -90,12 +90,22 @@ void check_errors(char* data,int max_size)
                 }
             }
             i = k;
-
-
-
-
         }
+        i++;
     }
+    if(tags.empty())
+    {
+        cout<<"all is well god save the king";
+    }
+    else
+    {
+        while(!tags.empty())
+        {
+            if(compare1(tags.front().s,tags.back().s))
+            {
+                tags.pop_front();
+                tags.pop_back();
+            }
 }
 
 int main()
