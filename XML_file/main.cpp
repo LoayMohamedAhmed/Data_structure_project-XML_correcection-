@@ -77,6 +77,23 @@ void check_errors(char* data,int max_size)
             {
                 tags.push_front(T);
             }
+
+            if (!tags.empty() && mark != 1)
+            {
+                if (compare1(T.s, tags.front().s))
+                {
+                    tags.pop_front();
+                }
+                else
+                {
+                    tags.push_front(T);
+                }
+            }
+            i = k;
+
+
+
+
         }
     }
 }
