@@ -114,7 +114,6 @@ void check_errors(char* data,int max_size)
                     {
                         if (tags.size() == 1)
                         {
-                            cout << "done";
                             errors_miss.push(tags.front());
                             tags.pop_front();
                             break;
