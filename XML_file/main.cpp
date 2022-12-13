@@ -138,6 +138,16 @@ void check_errors(char* data,int max_size)
                     temp.pop_front();
                 }
             }
+            }
+
+
+        while(!errors_miss.empty())
+        {
+            errors_miss1.push(errors_miss.top());
+            int num =order(data,errors_miss.top().index)+1;
+            cout<<"you have an error in line "<<num<<"at tag ("<<errors_miss.top().s<<")"<<endl;
+            errors_miss.pop();
+        }
 }
 
 int main()
