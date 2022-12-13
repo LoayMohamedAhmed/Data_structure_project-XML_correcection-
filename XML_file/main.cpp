@@ -106,6 +106,18 @@ void check_errors(char* data,int max_size)
                 tags.pop_front();
                 tags.pop_back();
             }
+            else
+            {
+                while(!tags.empty())
+                {
+                    if(compare1(tags.front().s,tags.back().s))
+                    {
+                       errors_wrong_poss.push(tags.back());
+                       errors_wrong_poss.push(tags.front());
+                       tags.pop_front();
+                       tags.pop_back();
+                       break;
+                    }
 }
 
 int main()
