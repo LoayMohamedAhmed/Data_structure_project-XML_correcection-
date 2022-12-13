@@ -47,6 +47,21 @@ bool compare1(string s1, string stk)
 }
 void check_errors(char* data,int max_size)
 {
+    while(i<max_size)
+    {
+        if(data[i]=='<')
+        {
+            int k=i;
+            mark++;
+            do
+            {
+                  characters.push(data[k]);
+                  k++;
+
+            }
+            while(data[k]!='>');
+        }
+    }
 }
 
 int main()
