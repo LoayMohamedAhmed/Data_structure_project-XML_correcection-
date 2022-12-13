@@ -138,7 +138,7 @@ void check_errors(char* data,int max_size)
                     temp.pop_front();
                 }
             }
-            }
+        }
 
 
         while(!errors_miss.empty())
@@ -148,6 +148,17 @@ void check_errors(char* data,int max_size)
             cout<<"you have an error in line "<<num<<"at tag ("<<errors_miss.top().s<<")"<<endl;
             errors_miss.pop();
         }
+        while (!errors_wrong_poss.empty())
+        {
+            errors_wrong_poss1.push(errors_wrong_poss.top());
+            int num = order(data, errors_wrong_poss.top().index) + 1;
+            cout << "you have an error in line " << num << "at tag (" << errors_wrong_poss.top().s << ")" << endl;
+            errors_wrong_poss.pop();
+        }
+
+
+
+    }
 }
 
 int main()
