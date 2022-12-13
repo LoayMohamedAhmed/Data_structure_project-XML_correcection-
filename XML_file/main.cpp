@@ -1,14 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <stack>
-#include <string.h>
-#include <deque>
-//#define max_size 26
-//2769
-using namespace std;
-using namespace std;
-
+#include "XML.h"
 int order(char* data,int i)
 {
     int count1=0;
@@ -47,6 +37,8 @@ bool compare1(string s1, string stk)
 }
 void check_errors(char* data,int max_size)
 {
+    int i =0;
+    tag T;
     while(i<max_size)
     {
         if(data[i]=='<')
@@ -155,15 +147,38 @@ void check_errors(char* data,int max_size)
             cout << "you have an error in line " << num << "at tag (" << errors_wrong_poss.top().s << ")" << endl;
             errors_wrong_poss.pop();
         }
-
-
-
     }
 }
 
 int main()
 {
-    cout << "Hello world!" << endl;
+   int file_size=0;
+    fstream file("test1.txt");
+    if(file.is_open())
+    {
+        while(file)
+        {
+            char c=file.get();
+            file_size++;
+        }
+
+
+    }
+    cout<<file_size;
+    fstream file1("test1.txt");
+    char data[file_size];
+    int i=0;
+    if(file1.is_open())
+    {
+        while(file1)
+        {
+            data[i]=file1.get();
+            i++;
+        }
+
+    }
+
+    check_errors(data,file_size);
     return 0;
 }
 

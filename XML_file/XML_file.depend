@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1670972706 source:d:\git\data_structure_project-xml_correcection-\xml_file\main.cpp
+	"XML.h"
+
+1670972747 d:\git\data_structure_project-xml_correcection-\xml_file\xml.h
+	<iostream>
+	<fstream>
+	<string>
+	<stack>
+	<string.h>
+	<deque>
+
