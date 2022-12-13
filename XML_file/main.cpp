@@ -45,6 +45,9 @@ bool compare1(string s1, string stk)
     }
     return check;
 }
+void check_errors(char* data,int max_size)
+{
+}
 
 int main()
 {
