@@ -1,0 +1,15 @@
+<users>
+    <user>
+        <id>1
+        <name>Ahmed Ali</name>
+        <posts>
+            <post>
+            </post>
+        </posts>
+        <followers>
+            <follower>
+                <name></id>
+            </follower>
+            <follower>
+            </follower>
+    </user>
