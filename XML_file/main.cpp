@@ -73,6 +73,10 @@ void check_errors(char* data,int max_size)
             }
             T.s = conv_to_string(temp_array, size1 + 1);
             T.index = k;
+            if (mark==1)
+            {
+                tags.push_front(T);
+            }
         }
     }
 }
