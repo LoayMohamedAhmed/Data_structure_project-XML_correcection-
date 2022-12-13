@@ -33,8 +33,22 @@ string conv_to_string(char characters[],int size1)
     }
     return s;
 }
+
+bool compare1(string s1, string stk)
+{
+    bool check = false;
+    if (s1[1] == '/')
+    {
+        s1.erase(s1.begin() + 1);
+        if (s1.compare(stk) == 0)
+            check = true;
+    }
+    return check;
+}
+
 int main()
 {
     cout << "Hello world!" << endl;
     return 0;
 }
+
