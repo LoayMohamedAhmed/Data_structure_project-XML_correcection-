@@ -118,6 +118,18 @@ void check_errors(char* data,int max_size)
                        tags.pop_back();
                        break;
                     }
+                    else
+                    {
+                        if (tags.size() == 1)
+                        {
+                            cout << "done";
+                            errors_miss.push(tags.front());
+                            tags.pop_front();
+                            break;
+                        }
+                        temp.push_front(tags.front());
+                        tags.pop_front();
+                    }
 }
 
 int main()
