@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/rec">
+        <file>icons/icons8-close-window-94.png</file>
+        <file>icons/icons8-go-back-48.png</file>
+        <file>icons/icons8-home-48.png</file>
+        <file>icons/icons8-save-94.png</file>
+    </qresource>
+</RCC>
