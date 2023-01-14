@@ -163,7 +163,7 @@ int main()
 
 
     }
-    cout<<file_size;
+    //cout<<file_size;
     fstream file1("test1.txt");
     char data[file_size];
     int i=0;
