@@ -14,6 +14,7 @@ SOURCES += \
 
 HEADERS += \
     XML.h \
+    hash_map.h \
     mainwindow.h
 
 FORMS += \
