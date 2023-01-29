@@ -149,9 +149,23 @@ void MainWindow::on_pushButton_3_clicked()
     QMessageBox::warning(this,"Error Detecting Window",check_errors(q));
 }
 
-
+//Correcting errors Button
 void MainWindow::on_pushButton_4_clicked()
 {
     ui->textBrowser->clear();
+    ui->textBrowser->setText(error_correction(q));
+}
+
+//Prettifying Button
+void MainWindow::on_pushButton_5_clicked()
+{
+
+}
+
+//Minifying Button
+void MainWindow::on_pushButton_6_clicked()
+{
+    ui->textBrowser->clear();
+    ui->textBrowser->setText(minifying(q));
 }
 

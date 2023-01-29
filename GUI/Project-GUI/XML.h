@@ -68,12 +68,11 @@ bool compare1(string s1,string stk)
 
 QString check_errors(string data)
 {
-
-    int k=50;
+    int mark = 0;
+    int k;
     string message;
     int i =0;
     tag T;
-    int mark = 0;
 
     while(i<data.size())
         {
@@ -218,9 +217,145 @@ QString check_errors(string data)
 }
 
 
+QString error_correction(string data)
+{
+    //cout<<"enter";
+    deque<char> l;
+    tag temp_tag;
+    int flag=0;
+    int j=0;
+    unsigned long long int index;
+    //ofstream file2("fixed.txt");
+    string corrected_text;
+    while(!errors_miss_tag1.empty())
+    {
+        if(errors_miss_tag1.top().s[1]=='/')
+        {
+            int end1=temp_tag.index_end;
+            if(flag!=0)
+            {
+                j=end1+1;
+            }
+            string word= errors_miss_tag1.top().s;
+            word.erase(word.begin()+1);
+            int i=errors_miss_tag1.top().index_start-1;
+            while(data[i]!='>')
+            {
+                i--;
+            }
+            for(;j<=i;j++)
+            {
+                l.push_back(data[j]);
+            }
+            int o=i;
+            for(int k=0;k<word.size();k++)
+            {
+                l.push_back(word[k]);
+            }
+            for(i+=1;i<=errors_miss_tag1.top().index_end;i++)
+            {
+                l.push_back(data[i]);
+            }
+            index=i;
+        }
+
+
+        if(flag!=0)
+        {
+            for(;index<=errors_miss_tag1.top().index_end;index++)
+                l.push_back(data[index]);
+
+        }
 
 
 
+
+        if(errors_miss_tag1.top().s[1]!='/')
+        {
+            if(flag==0)
+            {
+                for(int o=0;o<=errors_miss_tag1.top().index_end;o++)
+                {
+                    l.push_back(data[o]);
+                }
+            }
+            int i2=errors_miss_tag1.top().index_end+1;
+            int j2=errors_miss_tag1.top().index_end+1;
+            string word = errors_miss_tag1.top().s;
+            word.insert(1,"/");
+            while(data[i2]!='<')
+            {
+                i2++;
+            }
+            for(;j2<i2;j2++)
+            {
+                l.push_back(data[j2]);
+            }
+
+            for(int k=0;k < word.size();k++)
+            {
+                l.push_back(word[k]);
+            }
+            index=i2;
+        }
+        flag=1;
+        temp_tag=errors_miss_tag1.top();
+        errors_miss_tag1.pop();
+
+    }
+
+    while(!l.empty())
+    {
+        corrected_text+= l.front();
+        l.pop_front();
+    }
+    for(;index < (data.size())-1;index++)
+        corrected_text+= data[index];
+    return QString::fromStdString(corrected_text);
+
+}
+
+QString minifying(string data)
+{
+    //ofstream file2 ("mini.txt");
+    deque <char> q;
+    int flag =0;
+    int n=0;
+    long long count1=0;
+    string minified_text;
+    while(n<data.size()-2)
+    {
+        if(flag!=0)
+        {
+            n++;
+        }
+        flag=1;
+        if(data[n]=='\n' || (data[n]==' ' && data[n+1]==' '))
+        {
+            continue;
+        }
+        if(data[n]==' ' && data[n+1]=='<')
+        {
+            continue;
+        }
+        if(data[n]==' ' && (q.back()=='>'))
+        {
+            continue;
+        }
+        else
+        {
+            q.push_back(data[n]);
+        }
+
+    }
+     while(!q.empty())
+     {
+         //cout<<"renal";
+         minified_text+=q.front();
+         q.pop_front();
+     }
+    return QString::fromStdString(minified_text);
+}
 
 
 #endif // XML_H
