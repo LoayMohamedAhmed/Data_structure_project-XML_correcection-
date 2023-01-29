@@ -93,60 +93,81 @@ void check_errors(char* data,int max_size)
     {
         while(!tags.empty())
         {
-            if(compare1(tags.front().s,tags.back().s))
+            if(tags.front().s[1]!='/')
             {
+                errors_miss_tag.push(tags.front());
                 tags.pop_front();
-                tags.pop_back();
             }
-            else
+            if(compare1(tags.front().s,tags.back().s)&& !tags.empty())
             {
-                while(!tags.empty())
+
+                maybe.push_front(tags.front());
+                temp.push_front(tags.front());
+                tags.pop_front();
+                while(tags.size()!=1)
                 {
-                    if(compare1(tags.front().s,tags.back().s))
+                    if(compare1(tags.front().s, tags.back().s))
                     {
-                       errors_wrong_poss.push(tags.back());
-                       errors_wrong_poss.push(tags.front());
-                       tags.pop_front();
-                       tags.pop_back();
-                       break;
-                    }
-                    else
-                    {
-                        if (tags.size() == 1)
-                        {
-                            errors_miss.push(tags.front());
-                            tags.pop_front();
-                            break;
-                        }
+                        maybe.push_front(tags.front());
                         temp.push_front(tags.front());
                         tags.pop_front();
                     }
+                    else
+                    {
+                        temp.push_front(tags.front());
+                        tags.pop_front();
+                    }
+
                 }
-                while(!temp.empty())
+                tags.pop_back();
+                wanted=maybe.front();
+                while(maybe.size()!=0)
                 {
-
-                    tags.push_front(temp.front());
-                    temp.pop_front();
+                    maybe.pop_front();
                 }
+                while(temp.size()!=0)
+                {
+                    if(temp.front().index_end!=wanted.index_end)
+                    {
+                        tags.push_front(temp.front());
+                        temp.pop_front();
+
+                    }else temp.pop_front();
+                }
+
             }
+            else
+            {
+                if(tags.empty())
+                    break;
+                errors_miss_tag.push(tags.back());
+                tags.pop_back();
+
+            }
+
         }
 
+        while(!errors_miss_tag.empty())
+        {
+            errors_miss_tag1.push(errors_miss_tag.top());
+            int num =order(data,errors_miss_tag.top().index_end)+1;
+            cout<<"you have an error in line "<<num<<"at tag ("<<errors_miss_tag.top().s<<")"<<endl;
+            errors_miss_tag.pop();
+        }
 
-        while(!errors_miss.empty())
+        while(!errors_miss_br.empty())
         {
-            errors_miss1.push(errors_miss.top());
-            int num =order(data,errors_miss.top().index)+1;
-            cout<<"you have an error in line "<<num<<"at tag ("<<errors_miss.top().s<<")"<<endl;
-            errors_miss.pop();
+            errors_miss_br1.push(errors_miss_br.top());
+            int num =order(data,errors_miss_br.top().index_end)+1;
+            cout<<"you have an error in line "<<num<<"at tag ("<<errors_miss_br.top().s<<")"<<endl;
+            errors_miss_br.pop();
         }
-        while (!errors_wrong_poss.empty())
-        {
-            errors_wrong_poss1.push(errors_wrong_poss.top());
-            int num = order(data, errors_wrong_poss.top().index) + 1;
-            cout << "you have an error in line " << num << "at tag (" << errors_wrong_poss.top().s << ")" << endl;
-            errors_wrong_poss.pop();
-        }
+
     }
+    tags.clear();
+    temp.clear();
+    maybe.clear();
+ cout<<endl;
 }
 
 int main()
