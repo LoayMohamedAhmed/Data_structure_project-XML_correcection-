@@ -64,7 +64,8 @@ void check_errors(char* data,int max_size)
                 characters.pop();
             }
             T.s = conv_to_string(temp_array, size1 + 1);
-            T.index = k;
+            T.index_end = k;
+            T.index_start=k-(T.s.length()-1);
             if (mark==1)
             {
                 tags.push_front(T);
@@ -72,14 +73,19 @@ void check_errors(char* data,int max_size)
 
             if (!tags.empty() && mark != 1)
             {
-                if (compare1(T.s, tags.front().s))
-                {
-                    tags.pop_front();
-                }
-                else
-                {
-                    tags.push_front(T);
-                }
+               if(T.s[T.s.length()-1]=='>']
+               {
+                 if (compare1(T.s, tags.front().s))
+                 {
+                     tags.pop_front();
+                 }
+                 else
+                 {
+                     tags.push_front(T);
+                 }
+               }
+               else
+                  errors_miss_br.push(T):
             }
             i = k;
         }
