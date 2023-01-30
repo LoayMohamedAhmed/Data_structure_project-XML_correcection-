@@ -425,8 +425,43 @@ QString prettifing(string data)
 
     }
     return QString::fromStdString(prettified);
-    return QString::fromStdString(prettified);
 
+}
+
+
+void compress(string data){
+    vector<int> encoded_data;
+    ofstream file ("compressed.txt");
+    unordered_map<string,int>map;
+    for(size_t i = 0; i <= 255; i++){
+        string c = "";
+        c+= char(i);
+        map[c] = i;
+    }
+
+    string a = "", b="";
+    a+= data[0];
+    int j = 256;
+    for(size_t i = 0; i < data.size(); i++){
+        if(i != data.size()-1){
+            b+= data[i+1];
+        }
+        if(map.find(a+b)!= map.end()){
+            a = a + b;
+        }
+        else{
+            encoded_data.push_back(map[a]);
+            map[a+b] = j;
+            j++;
+            a = b;
+        }
+        b = "";
+    }
+    encoded_data.push_back(map[a]);
+    for(int i = 0; i<encoded_data.size(); i++){
+        file << encoded_data[i] << " ";
+    }
+    file.close();
 
 }
 
