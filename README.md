@@ -1,15 +1,15 @@
 # Data_structure_project-XML_correcection-
 
-*hello guyes, **XML (Extensible Markup Language)** is one of the most famous formats for storing and sharing
+* hello guyes, **XML (Extensible Markup Language)** is one of the most famous formats for storing and sharing
 information among different devices. Some text editors such as Sublime Text are able to parse
 such files and do some basic operations. In this project, you will work on developing a GUI
 (Graphical User Interface) based program to parse and visualize an XML file.
 
-*But, in our system the XML file will represent users in a social network
+* But, in our system the XML file will represent users in a social network
 Each user has id (unique), name, list of posts, list of followers.
 Each post has text and list of topics, So we have added some cool featurs embedded with well defined interface (GUI) to make it easy to use
 
-__**features**__
+__#features#__
 
 1.Checking the XML consistency: 
 
