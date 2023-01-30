@@ -7,7 +7,10 @@
 #include <string.h>
 #include <deque>
 #include <QString>
-#include <bits/stdc++.h>
+#include <unordered_map>
+#include <fstream>
+#include <vector>
+
 using namespace std;
 typedef struct{
     int index_end;
