@@ -63,8 +63,9 @@ void MainWindow::on_pushButton_2_clicked()
 {
 
     q = "";
+    filename = QFileDialog::getSaveFileName(this,tr("Save File"),"c://",tr("Text files (*.txt);;XML files (*.xml)"));
     QString inputText;
-    QFile file("F:\\Qt\\Project\\sample.xml");
+    QFile file(filename);
     if(file.open(QIODevice::Append | QIODevice::ReadWrite))
     {
         QTextStream stream(&file);
@@ -72,16 +73,29 @@ void MainWindow::on_pushButton_2_clicked()
         stream <<inputText;
 
     }
-    file.close();
+    //file.close();
     QTextStream out2(&file);
     ui->textBrowser->setText(inputText);
     q = inputText.toStdString();
+
     ui->stackedWidget->setCurrentIndex(3);
 }
 
 
 void MainWindow::on_actionSave_triggered()
 {
+    filename = QFileDialog::getSaveFileName(this,tr("Save File"),"c://",tr("Text files (*.txt);;XML files (*.xml)"));
+    QString inputText;
+    QFile file(filename);
+    if(file.open(QIODevice::Append | QIODevice::ReadWrite))
+    {
+        QTextStream stream(&file);
+        inputText = ui->textBrowser->toPlainText();
+        stream <<inputText;
+
+    }
+    //file.close();
+    QTextStream out(&file);
 
 }
 
@@ -162,12 +176,16 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_pushButton_5_clicked()
 {
+    ui->textBrowser->clear();
+    ui->textBrowser->setText(prettifing(q));
 
 }
 
 void MainWindow::on_pushButton_6_clicked()
 {
-    minifying(q);
+    ui->textBrowser->clear();
+    ui->textBrowser->setText(minifying(q));
+
 
 }
 
