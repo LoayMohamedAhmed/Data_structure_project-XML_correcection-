@@ -18,12 +18,12 @@ Each post has text and list of topics, So we have added some cool featurs embedd
    
 <h3> 2.The program is also able to solve errors discussed above. </h3>
 
-<h3> 3.Formatting (Prettifying) the XML: /h3>
+<h3> 3.Formatting (Prettifying) the XML: </h3>
 
   the XML file should be well formatted by keeping the indentation for each level, so prettifing function can handle it and you can take a look at its implementation.
   ![Screenshot from 2023-01-30 14-10-18](https://user-images.githubusercontent.com/101834345/215473331-bff4e910-6251-4b9a-ac8d-fcce387e9567.png)
 
-<h3> 4.Minifying the XML file: <h3>
+<h3> 4.Minifying the XML file: </h3>
 
   Since spaces and newlines (\n) are actually characters that can increase the size of an XML document. This feature should aim at decreasing the size of an XML file (compressing it) by deleting the whitespaces and indentations.
   ![Screenshot from 2023-01-30 14-12-58](https://user-images.githubusercontent.com/101834345/215473923-f0d36569-d546-4ee4-82a5-2a07fe61c045.png)
