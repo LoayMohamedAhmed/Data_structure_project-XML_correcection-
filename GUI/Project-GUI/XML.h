@@ -7,7 +7,7 @@
 #include <string.h>
 #include <deque>
 #include <QString>
-
+#include <bits/stdc++.h>
 using namespace std;
 typedef struct{
     int index_end;
