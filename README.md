@@ -9,7 +9,7 @@ such files and do some basic operations. In this project, you will work on devel
 Each user has id (unique), name, list of posts, list of followers.
 Each post has text and list of topics, So we have added some cool featurs embedded with well defined interface (GUI) to make it easy to use
 
-__# features #__
+<h2> features </h2>
 
 1.## Checking the XML consistency: ## 
 
