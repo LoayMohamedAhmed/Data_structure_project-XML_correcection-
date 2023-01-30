@@ -393,34 +393,38 @@ QString prettifing(string data)
                     l.push_back(' ');
                 }
             }
-
-
-
         }
 
-
-
         l.push_back(data[i]);
-
-
 
         i++;
         while(data[i]!='<'&& i<data.size()-1 )
         {
+            if(data[i-1]=='\n'&&data[i-2]=='>'&&data[i]!='<')
+            {
+                countspace++;
+                for(int j=0;j<countspace*4;j++)
+                {
+                    l.push_back(' ');
+                }
+                countspace--;
+            }
+
             l.push_back(data[i]);
             i++;
         }
         flag=1;
+
     }
+
     while(!l.empty())
     {
         //cout<<l.front();
         prettified+= l.front();
         l.pop_front();
 
-
-
     }
+    return QString::fromStdString(prettified);
     return QString::fromStdString(prettified);
 
 
