@@ -9,9 +9,9 @@ such files and do some basic operations. In this project, you will work on devel
 Each user has id (unique), name, list of posts, list of followers.
 Each post has text and list of topics, So we have added some cool featurs embedded with well defined interface (GUI) to make it easy to use
 
-__#features#__
+__# features #__
 
-1.Checking the XML consistency: 
+1.## Checking the XML consistency: ## 
 
    The input XML may have inconsistencies like missing anyof the closing and opening tags or not matching tags so check error function can detect errors    with high percentage of accuracy and visually show them.
  ![Screenshot from 2023-01-30 14-07-42](https://user-images.githubusercontent.com/101834345/215473001-082e08b2-0851-4381-bbdb-ae1307e12d77.png)
