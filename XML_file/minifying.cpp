@@ -1,10 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <stack>
-#include <string.h>
-#include <deque>
-using namespace std;
+#include "header.h"
 
 void minifying(char* data, int size1)
 {
@@ -59,35 +53,4 @@ void minifying(char* data, int size1)
 	 }
 	file2.close();
     cout<<"end";
-}
-// testing
-int main()
-{
-    int file_size=0;
-    fstream file("test2.txt");
-    if(file.is_open())
-    {
-        while(file)
-        {
-            char c=file.get();
-            file_size++;
-        }
-
-
-    }
-    fstream file1("test2.txt");
-    char data[file_size];
-    int i=0;
-    if(file1.is_open())
-    {
-        while(file1)
-        {
-            data[i]=file1.get();
-            i++;
-        }
-
-    }
-    cout<<file_size;
-    minifying(data,file_size);
-    return 0;
 }
