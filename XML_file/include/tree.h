@@ -14,7 +14,7 @@ class tree
     public:
         node* root;
         tree();
-        node* add_child(node* root1,deque<string>data);
+        node* add_child(node* root1,deque<string>data,int no_siblings);
         bool is_empty1();
         void print(node*root1);
         ~tree();
