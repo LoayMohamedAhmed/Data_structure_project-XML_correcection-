@@ -161,11 +161,6 @@ void check_errors(char data[],int max_size)
 
 void error_correction(char* data,int size1)
 {
-    while(!errors_miss_tag1.empty())
-    {
-        errors_miss_tag.push(errors_miss_tag1.top());
-        errors_miss_tag1.pop();
-    }
     cout<<"enter";
     deque<char> l;
     tag temp_tag;
@@ -173,18 +168,18 @@ void error_correction(char* data,int size1)
     int j=0;
     int index;
     ofstream file2("fixed.txt");
-    while(!errors_miss_tag.empty())
+    while(!errors_miss_tag1.empty())
     {
-        if(errors_miss_tag.top().s[1]=='/')
+        if(errors_miss_tag1.top().s[1]=='/')
         {
             int end1=temp_tag.index_end;
             if(flag!=0)
             {
                 j=end1+1;
             }
-            string word= errors_miss_tag.top().s;
+            string word= errors_miss_tag1.top().s;
             word.erase(word.begin()+1);
-            int i=errors_miss_tag.top().index_start-1;
+            int i=errors_miss_tag1.top().index_start-1;
             while(data[i]!='>')
             {
                 i--;
@@ -198,7 +193,7 @@ void error_correction(char* data,int size1)
             {
                 l.push_back(word[k]);
             }
-            for(i+=1;i<=errors_miss_tag.top().index_end;i++)
+            for(i+=1;i<=errors_miss_tag1.top().index_end;i++)
             {
                 l.push_back(data[i]);
             }
@@ -208,7 +203,7 @@ void error_correction(char* data,int size1)
 
         if(flag!=0)
         {
-            for(;index<=errors_miss_tag.top().index_end;index++)
+            for(;index<=errors_miss_tag1.top().index_end;index++)
                 l.push_back(data[index]);
 
         }
@@ -216,18 +211,18 @@ void error_correction(char* data,int size1)
 
 
 
-        if(errors_miss_tag.top().s[1]!='/')
+        if(errors_miss_tag1.top().s[1]!='/')
         {
             if(flag==0)
             {
-                for(int o=0;o<=errors_miss_tag.top().index_end;o++)
+                for(int o=0;o<=errors_miss_tag1.top().index_end;o++)
                 {
                     l.push_back(data[o]);
                 }
             }
-            int i2=errors_miss_tag.top().index_end+1;
-            int j2=errors_miss_tag.top().index_end+1;
-            string word = errors_miss_tag.top().s;
+            int i2=errors_miss_tag1.top().index_end+1;
+            int j2=errors_miss_tag1.top().index_end+1;
+            string word = errors_miss_tag1.top().s;
             word.insert(1,"/");
             while(data[i2]!='<')
             {
@@ -245,8 +240,8 @@ void error_correction(char* data,int size1)
             index=i2;
         }
         flag=1;
-        temp_tag=errors_miss_tag.top();
-        errors_miss_tag.pop();
+        temp_tag=errors_miss_tag1.top();
+        errors_miss_tag1.pop();
 
     }
 
