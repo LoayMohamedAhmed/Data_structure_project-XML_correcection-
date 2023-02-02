@@ -1,35 +1,22 @@
 #include "header.h"
 
-
 int main()
 {
-     int file_size=0;
-    fstream file("test.txt");
-    if(file.is_open())
+    int size1=file_size("test.txt");
+    char data[size1];
+    cout<<size1<<endl;
+    read_file(data, "test.txt");
+
+
+    check_errors(data,size1);
+    error_correction(data,size1);
+    minifying(data,size1);
+    prettifying(data,size1);
+   convert_jason(data,size1);
+
+    vector<string> res=searchTopic("economy");
+    for(int i=0;i<res.size();i++)
     {
-        while(file)
-
-        {
-            char c=file.get();
-            file_size++;
-        }
-
-
+       cout<<res[i]<<endl;
     }
-    fstream file1("test.txt");
-    char data[file_size];
-    int i=0;
-    if(file1.is_open())
-    {
-        while(file1)
-        {
-            data[i]=file1.get();
-            i++;
-        }
-
-    }
-    check_errors(data,file_size);
-    error_correction(data,file_size);
-    minifying(data,file_size);
-    prettifying(data,file_size);
 }
