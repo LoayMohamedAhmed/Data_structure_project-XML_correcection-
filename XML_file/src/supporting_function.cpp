@@ -67,3 +67,10 @@ void read_file(char data[], string path)
 
     }
 }
+bool compare2(string str1,string str2)
+{
+    bool check1=false;
+    if(str1.compare(str2)==0)
+        check1=true;
+    return check1;
+}
