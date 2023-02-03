@@ -11,6 +11,8 @@
 #include "Graph.h"
 #include <cstdlib>
 #include <vector>
+#include <unordered_map>
+#include <queue>
 using namespace std;
 
 
@@ -20,7 +22,12 @@ typedef struct{
     std::string s;
 } tag;
 
-
+struct MinHeapNode
+{
+    char data; //For storing data of the input file
+    int frequency; //Frequency of the characters of the input fie
+    MinHeapNode *left, *right; //Left and right nodes of the minimum heap tree
+};
 
 int file_size(string path );
 void read_file(char data[], string path);
@@ -37,5 +44,6 @@ Graph build_graph(char data[], int max_size);
 vector<string> bodySearch(node *node);
 vector<string> searchTopic(string word, bool choice);
 bool compare2(string s1, string s2);
-
+void XMLCompress(char[] data, int max_size);
+void XMLDecompress(char data[], int max_size);
 
