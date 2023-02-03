@@ -17,7 +17,7 @@ Each post has text and list of topics, So we have added some cool featurs embedd
 <h2>note</h2>
 
 
-*  our repo is devided into two main parts the first one GUI codes using qt and the second one is concel interface codes.
+*  our repo is devided into two main parts the first one GUI codes using qt and the second one is console interface codes.
  
 * programming language: C++.
 
