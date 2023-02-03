@@ -9,6 +9,11 @@ such files and do some basic operations. In this project, you will work on devel
 Each user has id (unique), name, list of posts, list of followers.
 Each post has text and list of topics, So we have added some cool featurs embedded with well defined interface (GUI) to make it easy to use
 
+# final result #
+
+![Correcting_2](https://user-images.githubusercontent.com/101834345/216678306-54062525-1c76-4178-9058-cc92c9eb60f8.png)
+
+
 <h2>note</h2>
 
 
