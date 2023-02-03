@@ -44,6 +44,6 @@ Graph build_graph(char data[], int max_size);
 vector<string> bodySearch(node *node);
 vector<string> searchTopic(string word, bool choice);
 bool compare2(string s1, string s2);
-void XMLCompress(char[] data, int max_size);
-void XMLDecompress(char data[], int max_size);
+void XMLCompress(string data);
+void XMLDecompress();
 
