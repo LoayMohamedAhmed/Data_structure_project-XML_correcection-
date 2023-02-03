@@ -10,8 +10,8 @@ Each user has id (unique), name, list of posts, list of followers.
 Each post has text and list of topics, So we have added some cool featurs embedded with well defined interface (GUI) to make it easy to use
 
 <h2>note</h2>
-   * our ripo is devided into two main parts the first one GUI codes using qt and the second one is concel interface codes.
-   * programming language: C++.
+ * our ripo is devided into two main parts the first one GUI codes using qt and the second one is concel interface codes.
+ * programming language: C++.
 
 <h2> features </h2>
 
