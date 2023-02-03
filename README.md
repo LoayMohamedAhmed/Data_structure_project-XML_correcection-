@@ -10,8 +10,9 @@ Each user has id (unique), name, list of posts, list of followers.
 Each post has text and list of topics, So we have added some cool featurs embedded with well defined interface (GUI) to make it easy to use
 
 <h2>note</h2>
- * our ripo is devided into two main parts the first one GUI codes using qt and the second one is concel interface codes.
- * programming language: C++.
+* our ripo is devided into two main parts the first one GUI codes using qt and the second one is concel interface codes.
+ 
+* programming language: C++.
 
 <h2> features </h2>
 
@@ -41,3 +42,22 @@ javascript as there’s tons of libraries and tools that use json notation.
 
 ![Screenshot from 2023-02-03 13-57-56](https://user-images.githubusercontent.com/101834345/216598144-9d59d516-3d25-4e19-b4a2-74afc33d8129.png)
 
+
+<h3> 6.representing the users data using the graph data structure: </h3>
+
+the XML file will represent the users data in a social network (their posts, followers, ...etc).
+The user data is his id (unique across the network), name, list of his posts and followers. So our sofware can represent the relation between the followers using the graph data structure as it will be very helpful for the network analysis.
+
+![Screenshot_from_2023-02-03_14-27-19-removebg-preview](https://user-images.githubusercontent.com/101834345/216603827-1c623c40-c71f-421b-8e91-588725c87c17.png)
+
+<h3>7.Network analysis: </h3>
+
+our software can extract some important data like:
+* who is the most influencer user (has the most followers)
+* who is the most active user (connected to lots of users)
+* the mutual followers between 2 users
+* for each user, suggest a list of users to follow (the followers of his followers)
+
+<h3> Post search:</h3>
+
+our software can also provide a a post search feature by using specific word either from body or the topic of the post and return the post with the author name
